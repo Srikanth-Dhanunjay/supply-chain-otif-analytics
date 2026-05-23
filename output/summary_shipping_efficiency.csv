@@ -1,0 +1,5 @@
+shipping_mode,total_shipments,avg_actual_days,avg_scheduled_days,avg_days_delayed,total_late_shipments
+Second Class,35216,3.9908,2.0,1.9908,28078.0
+First Class,27814,2.0,1.0,1.0,27814.0
+Same Day,9737,0.4783,0.0,0.4783,4657.0
+Standard Class,107752,3.9959,4.0,-0.0041,42851.0
