@@ -1,4 +1,5 @@
-# Supply Chain Analytics Pipeline
+# Supply Chain OTIF & Delivery Risk Analytics
+### MySQL · Python · Power BI | Global Logistics Performance
 
 An end-to-end data pipeline processing simulated global logistics performance. This project integrates a relational MySQL database with Python feature engineering to deliver a premium, interactive three-page Power BI dashboard.
 
