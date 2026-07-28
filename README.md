@@ -1,45 +1,154 @@
-# Supply Chain OTIF & Delivery Risk Analytics
-### MySQL · Python · Power BI | Global Logistics Performance
+# Supply Chain Performance Analytics Dashboard
 
-An end-to-end data pipeline processing simulated global logistics performance. This project integrates a relational MySQL database with Python feature engineering to deliver a premium, interactive three-page Power BI dashboard.
+### MySQL · SQL · Python · Pandas · Power BI
 
----
-
-## 🛠️ System Architecture & Workflow
-
-1. **Ingestion & Preprocessing**: SQL script handles bulk ingestion, cleaning, and structural normalization of raw transactional CSV records.
-2. **Relational Database Modeling**: Built a structured **Star Schema** within a MySQL environment, parsing flat data into optimized tables.
-3. **Analytical Feature Engineering**: Derived logistics distribution metrics and saved refined summaries into the `/output` directory as standalone CSV files.
-4. **Bespoke BI Delivery**: Developed an interactive 3-page Power BI application utilizing native header page navigation rails to eliminate manual client page hunting.
+An end-to-end supply chain analytics project that transforms raw transactional CSV data into meaningful business insights. The project uses MySQL for database design and SQL analysis, Python for data extraction and processing, and Power BI to build an interactive three-page dashboard for analyzing market performance, product performance, and shipping efficiency.
 
 ---
 
-## 💾 Database Modeling & SQL Engineering (MySQL)
+# 🛠️ Project Workflow
 
-Raw CSV files were mapped into an optimized staging layer using explicit data types, primary keys, and foreign key constraints to build a clean reporting schema:
+1. **Database Setup**
+   - Created a MySQL database and imported the raw supply chain dataset into a staging table.
 
-*   **Fact Table**: `fact_order_items` (Captures financial values, real shipping timelines, and calculated delivery risk metrics).
-*   **Dimension Tables**: `dim_orders` (Shipping modes and status), `dim_products` (Categories and SKUs), and `dim_customers` (Customer Information).
+2. **Data Validation & Normalization**
+   - Validated imported data, converted date fields, and organized the dataset into a Star Schema consisting of fact and dimension tables.
 
-> **Note:** Relational DDL definitions and metric aggregation scripts are fully documented in the `/SQL_queries` folder.
+3. **SQL Analytics**
+   - Wrote SQL queries to analyze:
+     - Market performance
+     - Product category performance
+     - Shipping mode efficiency
+
+4. **Python Data Processing**
+   - Connected Python to MySQL using SQLAlchemy.
+   - Executed SQL queries.
+   - Loaded results into pandas DataFrames.
+   - Exported summarized datasets as CSV files.
+
+5. **Power BI Dashboard**
+   - Built an interactive three-page Power BI dashboard using the generated CSV files.
 
 ---
 
-## 📊 Interactive Power BI Dashboard Application
+# 💾 Database Design
 
-The front-end interface features a modern UI/UX floating container layout with three distinct, interconnected reporting layers connected via an inline header button rail:
+The project follows a Star Schema for efficient analytical querying.
 
-1. **Market Analysis**: Evaluates regional revenue scales against core delivery threat baselines.
-2. **Product Performance**: Uses `Top N` filtering to isolate the Top 10 product categories by total revenue alongside the Top 10 categories suffering the worst average fulfillment delays.
-3. **Logistics Efficiency**: Compares total shipment volume distributions directly alongside average fulfillment delays across different carrier shipping modes.
+### Fact Table
+
+**fact_order_items**
+
+Contains transactional information such as:
+
+- Sales
+- Quantity
+- Discount
+- Delivery Status
+- Shipping Dates
+- Shipping Time
+- Benefit per Order
+
+### Dimension Tables
+
+**dim_customers**
+
+- Customer Details
+- Customer Segment
+- Customer Location
+
+**dim_products**
+
+- Product Information
+- Category
+- Department
+- Price
+
+**dim_orders**
+
+- Order Information
+- Market
+- Region
+- Order Status
+
 ---
 
-## 📂 Repository Blueprint
+# 📊 Dashboard Overview
+
+The Power BI dashboard consists of three pages.
+
+## 1. Market Performance
+
+Analyzes different global markets using:
+
+- Total Sales
+- Shipment Volume
+- Average Shipping Time
+- Late Delivery Percentage
+
+---
+
+## 2. Product Performance
+
+Analyzes product categories based on:
+
+- Total Revenue
+- Total Items Sold
+- Average Delivery Time
+- Average Delivery Delay
+
+---
+
+## 3. Shipping Efficiency
+
+Compares shipping modes using:
+
+- Total Shipments
+- Average Shipping Time
+- Average Delivery Delay
+
+---
+
+# 📂 Repository Structure
 
 ```text
-├── datasets/                  # Raw input supply chain transactional files
-├── output/                   # Processed analytic CSV exports and dashboard asset captures
-├── SQL_queries/              # Structured MySQL database mapping and metric logic scripts
-├── .gitignore                # System and environmental file filter configuration
-├── supply_chain_analysis.pbix     # Master Power BI Desktop application architecture
-└── supply_chain_analysis.pdf      # Static PDF export of the Power BI dashboard pages
+├── datasets/
+│   └── Raw supply chain CSV dataset
+│
+├── SQL_queries/
+│   ├── 01_database_setup.sql
+│   ├── 02_data_ingestion.sql
+│   ├── 03_data_cleaning_prep.sql
+│   └── 04_schema_normalization.sql
+│
+├── Source_Code.ipynb
+│
+├── output/
+│
+├── supply_chain_analysis.pbix
+├── supply_chain_analysis.pdf
+├── README.md
+└── .gitignore
+```
+
+---
+
+# 🚀 Tech Stack
+
+- **Database:** MySQL
+- **Query Language:** SQL
+- **Programming:** Python
+- **Libraries:** Pandas, SQLAlchemy
+- **Visualization:** Power BI
+
+---
+
+# 📈 Key Business Insights
+
+This project helps answer questions such as:
+
+- Which market generates the highest revenue?
+- Which product categories perform best?
+- Which shipping mode is most efficient?
+- Which markets experience higher delivery delays?
+- How does shipping performance vary across different transportation methods?
